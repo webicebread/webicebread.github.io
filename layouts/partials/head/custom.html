@@ -1,0 +1,18 @@
+{{/* 自定义字体：思源宋体(中文) + Source Serif 4(西文/数字)，衬线、好读、文气。
+     走 jsDelivr（国内可达），不用常被墙的 Google Fonts。
+     若某天加载失败，custom.scss 里有系统衬线兜底，正文仍清晰可读。 */}}
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/700.css">
+
+{{/* 轻量访问统计：config 驱动，留空则不输出（见 hugo.yaml params.analytics）。 */}}
+{{- with .Site.Params.analytics -}}
+  {{- with .goatcounter -}}
+    <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {{- end -}}
+  {{- with .umami -}}{{- if and .src .websiteId -}}
+    <script defer src="{{ .src }}" data-website-id="{{ .websiteId }}"></script>
+  {{- end -}}{{- end -}}
+{{- end -}}

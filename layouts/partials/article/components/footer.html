@@ -1,0 +1,41 @@
+{{/* 覆盖主题的 article/components/footer.html：末尾加了阅读次数（GoatCounter visitor counter）。
+     数据来自已启用的 GoatCounter 统计（hugo.yaml params.analytics.goatcounter）。
+     需在 GoatCounter 后台勾选 “allow using the visitor counter” 才会返回数据；
+     接口不通（未开启/被墙/断网）时整块隐藏，不影响页面。 */}}
+<footer class="article-footer">
+    {{ partial "article/components/tags" . }}
+
+    {{ if and (.Site.Params.article.license.enabled) (not (eq .Params.license false)) }}
+    <section class="article-copyright">
+        {{ partial "helper/icon" "copyright" }}
+        <span>{{ default .Site.Params.article.license.default .Params.license | markdownify }}</span>
+    </section>
+    {{ end }}
+
+    {{- if ne .Lastmod .Date -}}
+    <section class="article-lastmod">
+        {{ partial "helper/icon" "clock" }}
+        <span>
+            {{ T "article.lastUpdatedOn" }} {{ .Lastmod | time.Format ( or .Site.Params.dateFormat.lastUpdated "Jan 02, 2006 15:04 MST" ) }}
+        </span>
+    </section>
+    {{- end -}}
+
+    {{ with .Site.Params.analytics.goatcounter }}
+    <section class="article-views" id="article-views" style="display: none;">
+        {{ partial "helper/icon" "eye" }}
+        <span>阅读 <span id="article-views-count"></span> 次</span>
+    </section>
+    <script>
+        (function () {
+            fetch('https://{{ . }}.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+                .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+                .then(function (d) {
+                    document.getElementById('article-views-count').textContent = d.count.replace(/\s/g, '');
+                    document.getElementById('article-views').style.display = '';
+                })
+                .catch(function () {});
+        })();
+    </script>
+    {{ end }}
+</footer>
