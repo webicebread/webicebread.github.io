@@ -66,7 +66,7 @@ params:
         enabled: true
         provider: waline
         waline:
-            serverURL: https://kuroi-sakuya.duckdns.org
+            serverURL: https://webicebread.duckdns.org
             lang: zh-CN
             requiredMeta:         # 只要昵称 → 匿名留言（邮箱可选）
                 - nick
