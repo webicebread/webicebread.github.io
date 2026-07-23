@@ -1,5 +1,5 @@
 # ===== 站点基本信息（这几项最常改）=====
-baseURL: https://kuroi-sakuya.github.io/
+baseURL: https://webicebread.github.io/
 languageCode: zh-cn
 theme: hugo-theme-stack
 title: 互联网冷冻小面包          # ← 站点标题
@@ -99,7 +99,7 @@ params:
         opengraph:
             enabled: true
             local: false
-            src: https://kuroi-sakuya.github.io/og-default.png
+            src: https://webicebread.github.io/og-default.png
 
     colorScheme:
         toggle: true
@@ -116,7 +116,7 @@ params:
     #   把 xxx 填到 goatcounter 即自动启用，无需改 VPS。
     # Umami（可选，自托管）：填 src（script.js 地址）+ websiteId 两项才启用。
     analytics:
-        goatcounter: "kuroisakuya"   # → kuroisakuya.goatcounter.com（已启用）
+        goatcounter: "webicebread"   # → webicebread.goatcounter.com（已启用）
         umami:
             src: ""            # 例：https://umami.你的域名/script.js
             websiteId: ""
@@ -151,7 +151,7 @@ menu:
     social:
         - identifier: github
           name: GitHub
-          url: https://github.com/Kuroi-Sakuya
+          url: https://github.com/webicebread
           params:
               icon: brand-github
 
